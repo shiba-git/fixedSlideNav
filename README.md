@@ -162,6 +162,30 @@ default: true　// 警報あり
 example: parsonWarn: false　//警報非表示
 ```
 
+## 機能制限
+
+** sectionFilter **
+デザイン、レイアウトの都合上、ボタンの数は最大7個になっています。
+クラス名を7個以上設定しても、上7個が設定され、それ以外は削除されます。
+```
+The maximum number of sections is 7
+```
+
+** characterizationFilter **
+metaタグで、文字コードを指定してください。ボタンが文字化けをする恐れがあります。
+```
+Specify a character code, which must be a character code.
+```
+
+** parsonWarn **
+設定したクラス名のセクションが同階層にない場合、コンソールに警報が出ます。
+レイアウトが、崩れやすいためです。デザイン上、セクションを別階層にしたい場合は、
+オプションのparsonWarnをfalseにすることで、警報を非表示にできます。
+```
+The layout may be destroyed.
+```
+
+
 ## Changelog
 
 ### Version 1.1
