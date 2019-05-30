@@ -1,2 +1,173 @@
-# fixedSlideNav
-jQuery Plugin
+
+# fixedSlideNav 1.0.1
+
+### Merit to use fixedSlideNav
+* ポートフォリオや、シングルページアプリケーションで見るナビボタンが簡単に構築できます
+* レスポンシブ対応、リサイズ後もボタンは制動作します。
+* 対応ブラウザ: Firefox, Chrome, IE11 (safari未確認)
+* 開発者モードあり
+
+Written by: Shibayama Hiroki ( Japanese )
+
+### License
+Released under the MIT license - http://opensource.org/licenses/MIT
+
+## Installation
+
+### Step 1: Link required files
+
+jQuery.jsとfixedSlideNav.jsを呼び出してください。順番は、jQueryが先になるようにしてください。
+```html
+<!-- jQuery library (served from Google) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<!-- fixedSlideNav Javascript file -->
+<script src="fixedSlideNav.js"></script>
+```
+### Step 2: Create HTML markup
+
+エリア化したいセクションに同じクラス名を設定してください。
+クラスの数分だけ、ボタンが表示されます。(最大7個)
+```html
+<section class="fixedSlideNav"></section>
+<section class="fixedSlideNav"></section>
+<section class="fixedSlideNav"></section>
+<section class="fixedSlideNav"></section>
+```
+
+### Step 3: Call the fixedSlideNav
+
+各セクションに設定したクラスによって、fixedSlideNavが呼びだされます。
+
+```javascript
+$(document).ready(function(){
+  $('.fixedSlideNav').fixedSlideNav();
+});
+```
+
+## Configuration options ( 設定 / オプション )
+
+### Button Setting
+
+**btColor**
+
+ボタンの色 ( デフォルトはグレー )
+```
+default: "#ccc"
+example(例): btColor: "#ff0"
+```
+
+**btColorHover**
+
+マウスポインタが、上に置いた時のボタンの色 ( デフォルトは黒 )
+```
+default: "#000"
+example(例): btColorHover: "#f0f"
+```
+
+**btIcon**
+
+ボタンの形を設定できます。
+丸(circle)か、四角(square)
+```
+default: "circle"
+example(例): btIcon: "square"
+```
+
+**pcScall**
+
+ボタンの大きさ(PC)
+```
+default: "17px"
+example(例): pcScall: "20px"
+```
+
+**spScall**
+
+ボタンの大きさ(SP)
+```
+default: "25px"
+example(例): spScall: "30px"
+```
+
+**pcMargin**
+
+ボタン間の距離や、左右のほかの要素との距離が設定できます。(PC)
+```
+default: "100% 0"
+example(例): pcMargin: "120% 20%"
+```
+
+**spMargin**
+
+ボタン間の距離や、左右のほかの要素との距離が設定できます。(SP)
+```
+default: "40% 0"
+example(例): spMargin: "60% 10%"
+```
+
+### Animation
+
+**scrollAnimationSpeed**
+
+ボタン押した後、自動スクロールのスピードが設定できます。
+値が高いほど、スピードが遅くなります。
+```
+default: 500
+example(例): scrollAnimationSpeed: 250
+```
+
+### For developers
+
+**developMood**
+
+デベロッパーモードをオンにすると、
+各セクションに背景色、境目にラインが付きます。
+```
+default: false
+example(例): developMood: true
+```
+
+**bgColor [ developMood ]**
+
+各セクションの背景色をカラーコードで設定できます。※developMoodがtrueになっていること前提です。  
+bgColorの後ろに数字を入れると、各セクションの特定セクションが指定できます。
+```
+default:  bgColor1: '#f0f8ff',
+          bgColor2: '#f5f5dc',
+          bgColor3: '#f0ffff',
+          bgColor4: '#ffffe0',
+          bgColor5: '#e0ffff',
+          bgColor6: '#fffff0',
+          bgColor7: '#f5f5f5'
+          
+example(例): bgColor2: '#fff000'
+```
+
+**developBorder [ developMood ]**
+
+境目のラインを表示するか、非表示か設定することができます。※developMoodがtrueになっていること前提です。
+```
+default: true
+example(例): developBorder: false
+```
+
+### Error
+
+**parsonWarn**
+
+コンソールのアラートを消すことができます。
+警報内容は、機能制限をご覧ください。
+```
+default: true　// 警報あり
+example(例): parsonWarn: false　//警報非表示
+```
+
+## Changelog
+
+### Version 1.1
+* release
+* 公開
+
+
+
+
