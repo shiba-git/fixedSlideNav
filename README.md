@@ -53,7 +53,7 @@ $(document).ready(function(){
 ボタンの色 ( デフォルトはグレー )
 ```
 default: "#ccc"
-example(例): btColor: "#ff0"
+example: btColor: "#ff0"
 ```
 
 **btColorHover**
@@ -61,7 +61,7 @@ example(例): btColor: "#ff0"
 マウスポインタが、上に置いた時のボタンの色 ( デフォルトは黒 )
 ```
 default: "#000"
-example(例): btColorHover: "#f0f"
+example: btColorHover: "#f0f"
 ```
 
 **btIcon**
@@ -70,7 +70,7 @@ example(例): btColorHover: "#f0f"
 丸(circle)か、四角(square)
 ```
 default: "circle"
-example(例): btIcon: "square"
+example: btIcon: "square"
 ```
 
 **pcScall**
@@ -78,7 +78,7 @@ example(例): btIcon: "square"
 ボタンの大きさ(PC)
 ```
 default: "17px"
-example(例): pcScall: "20px"
+example: pcScall: "20px"
 ```
 
 **spScall**
@@ -86,7 +86,7 @@ example(例): pcScall: "20px"
 ボタンの大きさ(SP)
 ```
 default: "25px"
-example(例): spScall: "30px"
+example: spScall: "30px"
 ```
 
 **pcMargin**
@@ -94,7 +94,7 @@ example(例): spScall: "30px"
 ボタン間の距離や、左右のほかの要素との距離が設定できます。(PC)
 ```
 default: "100% 0"
-example(例): pcMargin: "120% 20%"
+example: pcMargin: "120% 20%"
 ```
 
 **spMargin**
@@ -102,7 +102,7 @@ example(例): pcMargin: "120% 20%"
 ボタン間の距離や、左右のほかの要素との距離が設定できます。(SP)
 ```
 default: "40% 0"
-example(例): spMargin: "60% 10%"
+example: spMargin: "60% 10%"
 ```
 
 ### Animation
@@ -113,7 +113,7 @@ example(例): spMargin: "60% 10%"
 値が高いほど、スピードが遅くなります。
 ```
 default: 500
-example(例): scrollAnimationSpeed: 250
+example: scrollAnimationSpeed: 250
 ```
 
 ### For developers
@@ -124,7 +124,7 @@ example(例): scrollAnimationSpeed: 250
 各セクションに背景色、境目にラインが付きます。
 ```
 default: false
-example(例): developMood: true
+example: developMood: true
 ```
 
 **bgColor [ developMood ]**
@@ -140,7 +140,7 @@ default:  bgColor1: '#f0f8ff',
           bgColor6: '#fffff0',
           bgColor7: '#f5f5f5'
           
-example(例): bgColor2: '#fff000'
+example: bgColor2: '#fff000'
 ```
 
 **developBorder [ developMood ]**
@@ -148,7 +148,7 @@ example(例): bgColor2: '#fff000'
 境目のラインを表示するか、非表示か設定することができます。※developMoodがtrueになっていること前提です。
 ```
 default: true
-example(例): developBorder: false
+example: developBorder: false
 ```
 
 ### Error
@@ -159,7 +159,7 @@ example(例): developBorder: false
 警報内容は、機能制限をご覧ください。
 ```
 default: true　// 警報あり
-example(例): parsonWarn: false　//警報非表示
+example: parsonWarn: false　//警報非表示
 ```
 
 ## Changelog
