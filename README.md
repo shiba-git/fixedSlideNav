@@ -197,6 +197,7 @@ The layout may be destroyed.
 * release
 * 公開
 
-
+### Version 1.2
+* 高い頻度で発火するreize.scrollイベントをrequestAnimationFrameで対応
 
 
