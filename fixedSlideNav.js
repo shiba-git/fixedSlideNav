@@ -236,7 +236,6 @@
 			
 		});
 		window.addEventListener('scroll', function(){
-			console.log("scroll");
 			if(!running){
 				running = true;
 				window.requestAnimationFrame(function(){
@@ -247,7 +246,6 @@
 		});
 
 		window.addEventListener('load', function(){
-			console.log("load");
 			if(!running){
 				running = true;
 				window.requestAnimationFrame(function(){
@@ -258,7 +256,6 @@
 		});
 
 		window.addEventListener('resize', function(){
-			console.log("resize");
 			if(!running){
 				running = true;
 				window.requestAnimationFrame(function(){
