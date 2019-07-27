@@ -1,5 +1,5 @@
 
-# fixedSlideNav 1.0.1
+# fixedSlideNav 1.2
 
 <img src="https://user-images.githubusercontent.com/17083627/58647473-9b69e780-8342-11e9-8489-a0ea86d318de.gif" width="600">
 
