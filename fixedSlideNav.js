@@ -1,5 +1,5 @@
  /**
- * fixedSlideNav v1.0.1
+ * fixedSlideNav v1.2
  * Copyright 2019 Shibayama Hiroki
  * Thank you for using
  * Licensed under MIT (http://opensource.org/licenses/MIT)
