@@ -6,28 +6,28 @@
  */
 
 (function( $ ) {
-  $.fn.fixedSlideNav = function(options) {
+  	$.fn.fixedSlideNav = function(options) {
 
-	var defaultSettings = $.extend({
-		btColor: "#ccc",
-		btColorHover: "#000",
-		btIcon: "circle",
-		scrollAnimationSpeed: "500",
-		pcScall: "17px",
-		spScall: "25px",
-		pcMargin: "100% 0",
-		spMargin: "40% 0",
-		developMood: false,
-		bgColor1: '#f0f8ff',
-		bgColor2: '#f5f5dc',
-		bgColor3: '#f0ffff',
-		bgColor4: '#ffffe0',
-		bgColor5: '#e0ffff',
-		bgColor6: '#fffff0',
-		bgColor7: '#f5f5f5',
-		developBorder: true,
-		parsonWarn: true
-	}, options);
+		var defaultSettings = $.extend({
+			btColor: "#ccc",
+			btColorHover: "#000",
+			btIcon: "circle",
+			scrollAnimationSpeed: "500",
+			pcScall: "17px",
+			spScall: "25px",
+			pcMargin: "100% 0",
+			spMargin: "40% 0",
+			developMood: false,
+			bgColor1: '#f0f8ff',
+			bgColor2: '#f5f5dc',
+			bgColor3: '#f0ffff',
+			bgColor4: '#ffffe0',
+			bgColor5: '#e0ffff',
+			bgColor6: '#fffff0',
+			bgColor7: '#f5f5f5',
+			developBorder: true,
+			parsonWarn: true
+		}, options);
 
 		let sections = this;
 		let sectionLength = sections.length;
@@ -121,6 +121,18 @@
 			return sections;
 		}
 
+		function developMood(sections, sectionLength){
+			var color = [defaultSettings.bgColor1, defaultSettings.bgColor2, defaultSettings.bgColor3, defaultSettings.bgColor4,
+			defaultSettings.bgColor5,defaultSettings.bgColor6,defaultSettings.bgColor7];
+			for(var i = 0; i < sectionLength; i++){
+				sections[i].style.backgroundColor = color[i];
+				defaultSettings.developBorder ? sections[i].style.borderBottom = "1px solid #696969" : false;
+				if(i == sectionLength - 1){
+					sections[i].style.borderBottom = "0px solid #dcdcdc";
+				}
+			}
+		}
+
 		function init(){
 			sectionFilter(sectionLength, sections);
 			defaultSettings.parsonWarn ? parsonEleWarn(sectionLength,sections) : false;
@@ -132,7 +144,8 @@
 
 		init();
 
-		$(window).on('load resize scroll',function(){
+		var running = false;
+		var optimizedCallback = function(){
 			let scrollValue = [];
 			var posScroll = $(window).scrollTop();
 			var li = $('ul#ulfixedSlideNav > li');
@@ -154,8 +167,6 @@
 			function ulPosition(indicator){
 				let ulHeight = indicator.getBoundingClientRect().height + 'px';
 				indicator.style.top = "calc(50% - %ulHeight / 2)".replace("%ulHeight", ulHeight);
-				// console.log(test);
-				//  = 'test';
 			}
 
 			function btPositionValue(){
@@ -168,6 +179,7 @@
 				scrollValue[0] = 0;
 				return scrollValue;
 			};
+
 			function btPositionColorHover(){
 				var aElem = $('ul#ulfixedSlideNav > li > a');
 				var aLen = aElem.length;
@@ -202,8 +214,6 @@
 			btPositionValue();
 			btPositionColorHover();
 
-
-			//イベント
 			$('ul#ulfixedSlideNav > li > a').hover(
 				function(){
 					$(this).css("color", defaultSettings.btColorHover);
@@ -213,49 +223,8 @@
 					btPositionColorHover();
 				}
 			);
+		};
 
-			// function automaticScroll(){
-			// 	nearScrollValue = [];
-
-			// 	function abs(val){
-			// 		return val < 0 ? -val : val;
-			// 	}
-			// 	for(var i = 0; i < scrollValue.length; i++){
-			// 		nearScrollValue.push(abs(scrollValue[i] -  posScroll));
-			// 	}
-			// 	console.log(nearScrollValue);
-			// 	var min = nearScrollValue.indexOf(Math.min.apply(null, nearScrollValue));
-			// 	var iti = sections[min];
-			// 	var pos = $(iti).offset().top;
-			// 	$('html,body').animate({'scrollTop': pos}, parseInt(defaultSettings.scrollAnimationSpeed, 10), 'swing');
-			// }
-
-			// function newEventTrigger(){
-			// 	if (timer) clearTimeout(timer);
-			// 	timer = setTimeout(function(){
-			// 		$(window).trigger(newEvent)
-			// 	}, 200);
-			// }
-			// $(window).on("scroll", newEventTrigger);
-			// $(window).on("scrollstop", function(){
-			// 	automaticScroll();
-			// });
-
-		});
-
-		function developMood(sections, sectionLength){
-			var color = [defaultSettings.bgColor1, defaultSettings.bgColor2, defaultSettings.bgColor3, defaultSettings.bgColor4,
-			defaultSettings.bgColor5,defaultSettings.bgColor6,defaultSettings.bgColor7];
-			for(var i = 0; i < sectionLength; i++){
-				sections[i].style.backgroundColor = color[i];
-				defaultSettings.developBorder ? sections[i].style.borderBottom = "1px solid #696969" : false;
-				if(i == sectionLength - 1){
-					sections[i].style.borderBottom = "0px solid #dcdcdc";
-				}
-			}
-		}
-
-		// イベント
 		$(function(){
 			$('ul#ulfixedSlideNav > li > a').on('click', function(e){
 				e.preventDefault();
@@ -263,8 +232,42 @@
 				var pos = $(href).offset().top;
 				$('html,body').animate({'scrollTop': pos}, parseInt(defaultSettings.scrollAnimationSpeed, 10), 'swing');
 			});
+
+			
+		});
+		window.addEventListener('scroll', function(){
+			console.log("scroll");
+			if(!running){
+				running = true;
+				window.requestAnimationFrame(function(){
+					running = false;
+					optimizedCallback();
+				});
+			}
 		});
 
-		
+		window.addEventListener('load', function(){
+			console.log("load");
+			if(!running){
+				running = true;
+				window.requestAnimationFrame(function(){
+					running = false;
+					optimizedCallback();
+				});
+			}
+		});
+
+		window.addEventListener('resize', function(){
+			console.log("resize");
+			if(!running){
+				running = true;
+				window.requestAnimationFrame(function(){
+					running = false;
+					optimizedCallback();
+				});
+			}
+		});
+
 	};
+
 })( jQuery );
